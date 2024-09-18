@@ -41,6 +41,7 @@ body {
   border: 1px solid rgb(251, 246, 246);
   border-radius: 5px;
   z-index: 9999;
+
 }
 .dropdown-container > div {
   display: flex;
@@ -313,10 +314,17 @@ body {
   }
 
   .dropdown-container {
-    width: 50%;
     top: 90%;
   }
 
+  .dropdown-grouping, .dropdown-ordering{
+    gap:1rem;
+  }
+
+  .dropdown-ordering{
+    margin-top: 5px;
+
+  }
   .dropdown-container > div > select {
     width: 100%;
   }
