@@ -1,4 +1,3 @@
-/* Base styles */
 html {
   margin: 0px;
   padding: 0px;
@@ -12,7 +11,7 @@ body {
   height: 100%;
 }
 
-.grouping-controls {
+.groupOption-controls {
   padding: 10px 20px;
   position: relative;
 }
@@ -41,6 +40,7 @@ body {
   background-color: rgb(240, 239, 239);
   border: 1px solid rgb(251, 246, 246);
   border-radius: 5px;
+  z-index: 9999;
 }
 .dropdown-container > div {
   display: flex;
@@ -100,7 +100,7 @@ body {
   grid-template-columns: repeat(
     auto-fill,
     minmax(200px, 1fr)
-  ); /* Responsive grid */
+  );
   gap: 1rem;
   padding: 1rem;
   align-items: stretch;
@@ -117,7 +117,6 @@ body {
   gap: 10px;
 }
 
-/* Specific grid placements for each card */
 .feature-card:nth-child(1),
 .feature-card:nth-child(2) {
   grid-column: 1;
@@ -198,7 +197,7 @@ body {
 .feature-card-header,
 .feature-description,
 .feature-footer {
-  margin-bottom: auto; /* Allow content to space properly */
+  margin-bottom: auto;
 }
 
 .ellipsis {
@@ -227,8 +226,8 @@ body {
 
 .ticket-group-header {
   display: flex;
-  align-items: center; /* Align items vertically center */
-  justify-content: space-between; /* Distribute space between items */
+  align-items: center; 
+  justify-content: space-between; 
 }
 
 .ticket-group-header img {
@@ -256,10 +255,10 @@ body {
   display: flex;
   flex-direction: column;
   padding: 1rem;
-  background-color: #f8f9fa; /* Light background for the column */
+  background-color: #f8f9fa;
   border-radius: 0.5rem;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-  min-width: 250px; /* Set a minimum width for the column */
+  min-width: 250px; 
 }
 
 .ticket-column-list .feature-card {
@@ -274,39 +273,7 @@ body {
   font-size: 12px;
 }
 
-/* Style for the see more/less button */
-.see-more {
-  display: none;
-  cursor: pointer;
-  text-align: center;
-  padding: 0.5rem;
-  background-color: #007bff; /* Blue background for the button */
-  color: white;
-  border-radius: 0.5rem;
-  margin-top: 1rem;
-  font-size: 0.875rem;
-}
 
-/* Adjustments when showing all cards */
-.ticket-column-list.show-all .feature-card {
-  margin-bottom: 1rem; /* Ensure consistent spacing */
-}
-
-.ticket-column-list .empty-message {
-  text-align: center;
-  padding: 20px;
-  font-size: 18px;
-  color: #777;
-}
-
-.empty-message {
-  text-align: center;
-  padding: 20px;
-  font-size: 18px;
-  color: #777;
-}
-
-/* Media Queries */
 @media (max-width: 1200px) {
   .kanban-board {
     flex-direction: column;
@@ -356,9 +323,6 @@ body {
 }
 
 @media (max-width: 480px) {
-  .display-container {
-  }
-
   .ticket-card {
     padding: 8px;
   }
@@ -373,14 +337,14 @@ body {
     width: 95%;
   }
   .ticket-column-list {
-    min-width: 100%; /* Full width on small screens */
-    padding: 0.5rem; /* Adjust padding on small screens */
+    min-width: 100%; 
+    padding: 0.5rem; 
   }
 
   .ticket-column-list .feature-card {
-    margin-bottom: 0.5rem; /* Reduced margin on small screens */
+    margin-bottom: 0.5rem; 
   }
   .see-more {
-    display: block; /* Show on small screens */
+    display: block; 
   }
 }

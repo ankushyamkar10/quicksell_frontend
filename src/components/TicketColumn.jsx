@@ -4,20 +4,19 @@ import { AppContext } from "../feature/appContext";
 import add from "../images/add.svg";
 import menu from "../images/menu.svg";
 import {
-  getRandomColor,
-  getRandomStatusColor,
+  getUserBgColor,
   priorityIcons,
   statusIcons,
 } from "../config";
 
 const TicketColumn = ({ tickets, header, index }) => {
-  const { sortOrder, grouping, users } = useContext(AppContext);
+  const { sortOption, groupOption, users } = useContext(AppContext);
 
   const sortTickets = () => {
     return tickets?.sort((a, b) => {
-      if (sortOrder === "priority") {
+      if (sortOption === "priority") {
         return b.priority - a.priority;
-      } else if (sortOrder === "title") {
+      } else if (sortOption === "title") {
         return a.title.localeCompare(b.title);
       }
       return 0;
@@ -27,7 +26,7 @@ const TicketColumn = ({ tickets, header, index }) => {
   const sortedTickets = tickets ? sortTickets() : [];
 
   const currUser =
-    grouping === "userId" && users.find((user) => user.name === header);
+    groupOption === "userId" && users.find((user) => user.name === header);
 
   return (
     <div>
@@ -40,21 +39,23 @@ const TicketColumn = ({ tickets, header, index }) => {
         }}
       >
         <div className="ticket-group-header">
-          {grouping === "userId" ? (
+          {groupOption === "userId" ? (
             <div
               className="assignee-avatar"
-              style={{ backgroundColor: getRandomColor() }}
+              style={{ backgroundColor: getUserBgColor() }}
             >
               {currUser?.name[0]}
               <div
                 className="assignee-avatar-status"
-                style={{ backgroundColor: getRandomStatusColor() }}
+                style={{
+                  backgroundColor: currUser.available ? "green" : "grey",
+                }}
               ></div>
             </div>
           ) : (
             <img
               src={
-                grouping === "status"
+                groupOption === "status"
                   ? statusIcons[index]
                   : priorityIcons[index]
               }
@@ -79,7 +80,7 @@ const TicketColumn = ({ tickets, header, index }) => {
         ))
       ) : (
         <p className="empty-ticket ticket-card">
-          There are no tickets for {header} column.
+          There are no tickets in this group.
         </p>
       )}
     </div>

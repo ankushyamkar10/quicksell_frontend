@@ -1,18 +1,15 @@
-// src/AppContext.js
 import React, { createContext, useState, useEffect } from "react";
 
-// Create Context
 export const AppContext = createContext();
 
-// Create Provider Component
 export const AppProvider = ({ children }) => {
   const [tickets, setTickets] = useState([]);
   const [users, setUsers] = useState([]);
-  const [grouping, setGrouping] = useState("status");
-  const [sortOrder, setSortOrder] = useState("priority");
+  const [groupOption, setGroupOption] = useState("status");
+  const [sortOption, setSortOption] = useState("priority");
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchTickets = async () => {
       const response = await fetch(
         "https://api.quicksell.co/v1/internal/frontend-assignment"
       );
@@ -21,15 +18,15 @@ export const AppProvider = ({ children }) => {
       setUsers(users);
     };
 
-    fetchData();
+    fetchTickets();
   }, []);
 
-  const handleGroupingChange = (value) => {
-    setGrouping(value);
+  const handleGroupOptionChange = (value) => {
+    setGroupOption(value);
   };
 
-  const handleSortOrderChange = (value) => {
-    setSortOrder(value);
+  const handlesortOptionChange = (value) => {
+    setSortOption(value);
   };
 
   return (
@@ -37,10 +34,10 @@ export const AppProvider = ({ children }) => {
       value={{
         tickets,
         users,
-        grouping,
-        sortOrder,
-        handleGroupingChange,
-        handleSortOrderChange,
+        groupOption,
+        sortOption,
+        handleGroupOptionChange,
+        handlesortOptionChange,
       }}
     >
       {children}

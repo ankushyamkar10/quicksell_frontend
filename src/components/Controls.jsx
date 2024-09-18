@@ -6,45 +6,42 @@ import { AppContext } from "../feature/appContext";
 const GroupingControls = () => {
   const [showDropdown, setShowDropdown] = useState(false);
 
-  const { grouping, sortOrder, handleGroupingChange, handleSortOrderChange } =
+  const { groupOption, sortOption, handleGroupOptionChange, handlesortOptionChange } =
     useContext(AppContext);
 
-  const handleShowDropdown = () => {
-    setShowDropdown(!showDropdown);
+  const toggleDropdown = () => {
+    setShowDropdown((prev) => !prev);
   };
+
   return (
-    <div className="grouping-controls">
-      <div className="display-container">
+    <div className="groupOption-controls">
+      <div className="display-container" onClick={toggleDropdown}>
         <img src={display} alt="display-icon" />
         <span>Display</span>
-        <img
-          src={down}
-          alt="down-icon"
-          onClick={handleShowDropdown}
-          style={{ cursor: "pointer" }}
-        />
+        <img src={down} alt="toggle-dropdown" className="dropdown-toggle-icon" />
       </div>
 
       {showDropdown && (
         <div className="dropdown-container">
-          <div style={{ marginBottom: "10px" }}>
-            <div className="dropdown-title">Grouping</div>
+          <div className="dropdown-grouping">
+            <label htmlFor="grouping" className="dropdown-title">Grouping</label>
             <select
-              value={grouping}
-              onChange={(e) => {
-                handleGroupingChange(e.target.value);
-              }}
+              id="grouping"
+              value={groupOption}
+              onChange={(e) => handleGroupOptionChange(e.target.value)}
             >
               <option value="status">Status</option>
               <option value="userId">User</option>
               <option value="priority">Priority</option>
-            </select>{" "}
+            </select>
           </div>
-          <div>
-            <div className="dropdown-title">Ordering</div>
+
+          <div className="dropdown-ordering">
+            <label htmlFor="ordering" className="dropdown-title">Ordering</label>
             <select
-              value={sortOrder}
-              onChange={(e) => handleSortOrderChange(e.target.value)}
+              id="ordering"
+              value={sortOption}
+              onChange={(e) => handlesortOptionChange(e.target.value)}
             >
               <option value="priority">Priority</option>
               <option value="title">Title</option>

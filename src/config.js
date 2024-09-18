@@ -3,8 +3,6 @@ import todo  from "./images/To-do.svg";
 import backlog  from "./images/Backlog.svg";
 import canceled  from "./images/canceled.svg";
 import inProgress  from "./images/in-progress.svg";
-
-
 import highPriority  from "./images/high-priority.svg";
 import lowPriority  from "./images/low-priority.svg";
 import mediumPriority  from "./images/medium-priority.svg";
@@ -24,7 +22,7 @@ export const statusLabels = [
   "Todo",
   "In progress",
   "Backlog",
-  "canceled",
+  "Canceled",
 ];
 
 
@@ -37,13 +35,13 @@ export const labelToIcons = statusLabels.reduce((acc, label, index) => {
 
 export const priorityIcons = [noPriority, lowPriority, mediumPriority, highPriority, urgentPriority];
 
-export const getRandomColor = () => {
+export const getUserBgColor = () => {
   const colors = ['orange', '#2baa2b', '#3890f4'];
   const randomIndex = Math.floor(Math.random() * colors.length);
   return colors[randomIndex];
 };
 
-export const getRandomStatusColor = () => {
+export const getUserStatusColor = () => {
   const colors = ['red', 'green', 'yellow',' grey'];
   const randomIndex = Math.floor(Math.random() * colors.length);
   return colors[randomIndex];
