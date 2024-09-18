@@ -1,0 +1,386 @@
+/* Base styles */
+html {
+  margin: 0px;
+  padding: 0px;
+  height: 100%;
+}
+body {
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  height: 100%;
+}
+
+.grouping-controls {
+  padding: 10px 20px;
+  position: relative;
+}
+
+.display-container {
+  padding: 2px 4px;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  gap: 4px;
+  border: 1px solid rgb(231, 230, 230);
+  border-radius: 5px;
+  width: fit-content;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.display-container span {
+  font-size: 12px;
+}
+
+.dropdown-container {
+  position: absolute;
+  top: 85%;
+  width: 12rem;
+  padding: 10px;
+  background-color: rgb(240, 239, 239);
+  border: 1px solid rgb(251, 246, 246);
+  border-radius: 5px;
+}
+.dropdown-container > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dropdown-container > div > select {
+  width: 80px;
+  font-size: 12px;
+  appearance: none;
+  border: 1px solid rgb(251, 246, 246);
+  border-radius: 5px;
+  padding: 2px 4px;
+}
+
+.dropdown-container > div > select:focus {
+  outline: none;
+}
+
+.dropdown-title {
+  color: gray;
+  font-size: 12px;
+}
+
+.kanban-board {
+  display: flex;
+  gap: 20px;
+  background-color: rgb(237, 240, 244);
+  height: 92vh;
+  overflow-x: auto;
+  padding-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.kanban-grid {
+  display: flex;
+  gap: 1rem;
+}
+
+.kanban-column {
+  padding: 10px;
+  width: 260px;
+  flex: 1 1 200px;
+}
+
+.ticket-card {
+  background-color: #fff;
+  border: 1px solid rgb(251, 246, 246);
+  border-radius: 5px;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.feature-list {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(200px, 1fr)
+  ); /* Responsive grid */
+  gap: 1rem;
+  padding: 1rem;
+  align-items: stretch;
+}
+
+.feature-card {
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  gap: 10px;
+}
+
+/* Specific grid placements for each card */
+.feature-card:nth-child(1),
+.feature-card:nth-child(2) {
+  grid-column: 1;
+}
+
+.feature-card:nth-child(3),
+.feature-card:nth-child(4),
+.feature-card:nth-child(5) {
+  grid-column: 2;
+}
+
+.feature-card:nth-child(6) {
+  grid-column: 3;
+}
+
+.feature-card:nth-child(7),
+.feature-card:nth-child(8),
+.feature-card:nth-child(9),
+.feature-card:nth-child(10),
+.feature-card:nth-child(11) {
+  grid-column: 4;
+}
+
+.feature-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 14px;
+  gap: 0.5rem;
+}
+
+.feature-id {
+  font-size: 12px;
+  color: #888;
+  font-weight: 300;
+  margin: 0;
+}
+
+.feature-title {
+  font-size: 12px;
+  font-weight: 600;
+  margin: 0.25rem 0 0;
+}
+
+.assignee-avatar {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  color: rgb(70, 69, 69);
+}
+.assignee-avatar-status {
+  width: 0.5rem;
+  height: 0.5rem;
+  background: rgb(230, 0, 0);
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+  border-radius: 100%;
+  border: 2px solid white;
+}
+.feature-description {
+  font-size: 0.875rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+.feature-footer {
+  display: flex;
+  align-items: center;
+  font-size: 0.75rem;
+  color: #888;
+}
+
+.feature-card-header,
+.feature-description,
+.feature-footer {
+  margin-bottom: auto; /* Allow content to space properly */
+}
+
+.ellipsis {
+  margin-right: 0.5rem;
+  padding: 1px 2.5px;
+  border: 1px solid rgb(251, 246, 246);
+  border-radius: 5px;
+}
+
+.feature-tag {
+  border-radius: 5px;
+  padding: 0.25rem 0.5rem 0.25rem 0.25rem;
+  border: 1px solid rgb(251, 246, 246);
+  display: flex;
+  align-items: center;
+  font-size: 10px;
+}
+
+.feature-tag > div {
+  background: rgb(194, 192, 192);
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 100%;
+  margin-right: 4px;
+}
+
+.ticket-group-header {
+  display: flex;
+  align-items: center; /* Align items vertically center */
+  justify-content: space-between; /* Distribute space between items */
+}
+
+.ticket-group-header img {
+  margin-right: 5px;
+}
+
+.ticket-group-header span {
+  margin: 0 5px;
+}
+
+.column-header {
+  font-size: 13px;
+}
+
+.gray-text {
+  color: #504f4f;
+}
+
+.dficjc {
+  display: flex;
+  align-items: center;
+}
+
+.ticket-column-list {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  background-color: #f8f9fa; /* Light background for the column */
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  min-width: 250px; /* Set a minimum width for the column */
+}
+
+.ticket-column-list .feature-card {
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.empty-ticket {
+  font-size: 12px;
+}
+
+/* Style for the see more/less button */
+.see-more {
+  display: none;
+  cursor: pointer;
+  text-align: center;
+  padding: 0.5rem;
+  background-color: #007bff; /* Blue background for the button */
+  color: white;
+  border-radius: 0.5rem;
+  margin-top: 1rem;
+  font-size: 0.875rem;
+}
+
+/* Adjustments when showing all cards */
+.ticket-column-list.show-all .feature-card {
+  margin-bottom: 1rem; /* Ensure consistent spacing */
+}
+
+.ticket-column-list .empty-message {
+  text-align: center;
+  padding: 20px;
+  font-size: 18px;
+  color: #777;
+}
+
+.empty-message {
+  text-align: center;
+  padding: 20px;
+  font-size: 18px;
+  color: #777;
+}
+
+/* Media Queries */
+@media (max-width: 1200px) {
+  .kanban-board {
+    flex-direction: column;
+    padding-top: 0.5rem;
+  }
+
+  .kanban-column {
+    width: 100%;
+    flex: 1 1 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .kanban-grid {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .kanban-column {
+    width: 280px;
+  }
+
+  .feature-list {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+
+  .feature-card {
+    padding: 0.75rem;
+  }
+
+  .feature-title {
+    font-size: 10px;
+  }
+
+  .feature-id {
+    font-size: 10px;
+  }
+
+  .dropdown-container {
+    width: 50%;
+    top: 90%;
+  }
+
+  .dropdown-container > div > select {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .display-container {
+  }
+
+  .ticket-card {
+    padding: 8px;
+  }
+
+  .feature-card {
+    padding: 0.5rem;
+  }
+  .kanban-grid {
+    flex-direction: column;
+  }
+  .kanban-column {
+    width: 95%;
+  }
+  .ticket-column-list {
+    min-width: 100%; /* Full width on small screens */
+    padding: 0.5rem; /* Adjust padding on small screens */
+  }
+
+  .ticket-column-list .feature-card {
+    margin-bottom: 0.5rem; /* Reduced margin on small screens */
+  }
+  .see-more {
+    display: block; /* Show on small screens */
+  }
+}
