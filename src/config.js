@@ -40,9 +40,3 @@ export const getUserBgColor = () => {
   const randomIndex = Math.floor(Math.random() * colors.length);
   return colors[randomIndex];
 };
-
-export const getUserStatusColor = () => {
-  const colors = ['red', 'green', 'yellow',' grey'];
-  const randomIndex = Math.floor(Math.random() * colors.length);
-  return colors[randomIndex];
-};
